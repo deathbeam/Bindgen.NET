@@ -72,11 +72,6 @@ public class BindingOptions
     public bool TreatInputFileAsRawSourceCode { get; set; }
 
     /// <summary>
-    /// If set to <c>true</c>, value-like macros will be generated. This defaults to <c>false</c>.
-    /// </summary>
-    public bool GenerateMacros { get; set; }
-
-    /// <summary>
     /// If set to <c>true</c>, extern variables will be generated.
     /// A native helper file will be generated that must be compiled alongside the code you are generating bindings for.
     /// <see cref="NativeOutputFile"/> should be configured when using this property. This defaults to <c>false</c>.
@@ -84,20 +79,16 @@ public class BindingOptions
     public bool GenerateExternVariables { get; set; }
 
     /// <summary>
-    /// If set to <c>true</c>, an unmanaged function pointer will be generated instead of an <see cref="IntPtr"/>. This defaults to <c>false</c>.
-    /// </summary>
-    public bool GenerateFunctionPointers { get; set; }
-
-    /// <summary>
     /// If set to <c>true</c>, all generated method signatures will be marked with the SuppressGCTransition attribute. This defaults to <c>false</c>
     /// </summary>
     public bool GenerateSuppressGcTransition { get; set; }
 
     /// <summary>
-    /// If set to <c>true</c>, all structs will be generated with equality functions and operators. This defaults to <c>false</c>.
+    /// If set to <c>true</c>, the DisableRuntimeMarshalling assembly attribute will be generated and the outputted code
+    /// will use System.Boolean instead of System.Byte for boolean types.
     /// </summary>
     /// <returns></returns>
-    public bool GenerateStructEqualityFunctions { get; set; }
+    public bool GenerateDisableRuntimeMarshallingAttribute { get; set; }
 
     /// <summary>
     /// Sets the max diagnostic level to log to the console. This defaults to <c>DiagnosticLevel.Info</c>.

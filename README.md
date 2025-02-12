@@ -16,7 +16,7 @@ A runtime id is needed to resolve the ClangSharp native dependencies. Your proje
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <!-- This line is required -->
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
     </PropertyGroup>
@@ -48,10 +48,6 @@ BindingOptions exampleConfig = new()
     
     IncludeDirectories = { "path/include" },
     SystemIncludeDirectories = { "path/include" },
-
-    GenerateFunctionPointers = true,
-    GenerateMacros = true,
-    GenerateStructEqualityFunctions = true
 };
 
 string output = BindingGenerator.Generate(exampleConfig);

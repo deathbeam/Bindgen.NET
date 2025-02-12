@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <RootNamespace>BindGen.NET</RootNamespace>
+        <RootNamespace>Bindgen.NET</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
@@ -17,7 +17,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>0.1.16</Version>
+        <Version>0.1.17</Version>
         <Title>Bindgen.NET</Title>
         <Authors>BeanCheeseBurrito</Authors>
         <Description>Generate C# bindings from C headers.</Description>

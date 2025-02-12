@@ -2,7 +2,6 @@
 using Bindgen.NET;
 
 const string exampleSource = """
-// Bindgen.NET has clang headers built-in
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -43,9 +42,6 @@ BindingOptions exampleConfig = new()
     SystemIncludeDirectories = { Path.Combine(BuildConstants.ZigLibPath, "include") },
 
     SuppressedWarnings = { "CA1069" },
-
-    GenerateFunctionPointers = true,
-    GenerateMacros = true
 };
 
 string generatedSource = BindingGenerator.Generate(exampleConfig);
