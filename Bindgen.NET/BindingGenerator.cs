@@ -322,7 +322,6 @@ public static class BindingGenerator
         value = default;
         return false;
     }
-
     private static IEnumerable<RecordDecl> GetRecordDecls(IEnumerable<Cursor> cursors)
     {
         return cursors
@@ -451,7 +450,8 @@ public static class BindingGenerator
         {
             if (pointerType.CanonicalType.PointeeType is FunctionProtoType)
                 typeName = GetTypeName(pointerType.PointeeType);
-            else if (pointerType.PointeeType.AsString == "FILE")
+            else if (pointerType.PointeeType.AsString is "FILE" or "_IO_FILE"
+                || (pointerType.PointeeType.CanonicalType is RecordType fileRecordType && fileRecordType.Decl.Name == "_IO_FILE"))
                 typeName = "void*";
             else
                 typeName = GetTypeName(pointerType.CanonicalType.PointeeType) + "*";
