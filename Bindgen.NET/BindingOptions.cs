@@ -94,4 +94,21 @@ public class BindingOptions
     /// Sets the max diagnostic level to log to the console. This defaults to <c>DiagnosticLevel.Info</c>.
     /// </summary>
     public DiagnosticLevel DiagnosticLevel { get; set; } = DiagnosticLevel.Info;
+
+    /// <summary>
+    /// If set, the input is parsed twice: once with the default preprocessor state (the primary parse) and once
+    /// with every define in <see cref="ConditionalDefines"/> defined (the alternate parse). Declarations and
+    /// struct fields that only exist in the primary parse are wrapped in <c>#if {ConditionalSymbol}</c> and those
+    /// that only exist in the alternate parse are wrapped in <c>#if !{ConditionalSymbol}</c>, so a single generated
+    /// file can match both native build configurations (e.g. debug/release struct layouts differing through
+    /// <c>#ifdef</c>). This defaults to <c>null</c>, which disables the second parse.
+    /// </summary>
+    public string? ConditionalSymbol { get; set; }
+
+    /// <summary>
+    /// Additional preprocessor defines (e.g. <c>"FLECS_NDEBUG"</c>) applied to the alternate parse when
+    /// <see cref="ConditionalSymbol"/> is set. If <see cref="ConditionalSymbol"/> is not set, these defines are
+    /// applied to the main parse instead. This defaults to an empty list.
+    /// </summary>
+    public List<string> ConditionalDefines { get; set; } = new();
 }
